@@ -7,6 +7,10 @@ body {
     background-color: black;
 }
 
+#myNav {
+    background-color: #5cb85c;
+}
+
 .jumbotron {
     background-color: black;
 }
@@ -21,7 +25,7 @@ body {
 .row {
     margin-left: 0px;
     margin-right: 0px;
-    height: 650px;
+    height: 65%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -37,8 +41,8 @@ body {
 
 
 .btn-primary {
-    /* border-color: #006b1e;
-    background-color: #006b1e; */
+    /* border-color: #5cb85c;
+    background-color: #5cb85c; */
 }
 
 h1 {
