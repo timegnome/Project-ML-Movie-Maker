@@ -4,18 +4,53 @@ html {
 
 body {
     height: 100%;
+    background-color: black;
 }
 
+.jumbotron {
+    background-color: black;
+}
 
 .container-fluid {
     height: 100%;
     padding-left: 0px;
     padding-right: 0px;
+    background-color: black;
 }
 
 .row {
     margin-left: 0px;
     margin-right: 0px;
-    height: 65%;
+    height: 650px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: black;
 }
+
+.img-responsive {
+    /* width: 100%;  */
+    height: auto;
+}
+
+.btn-primary {
+    /* border-color: #006b1e;
+    background-color: #006b1e; */
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.lead {
+    color: white;
+}
+
+.rowtext {
+    color: white;
+}
+
