@@ -1,0 +1,21 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+
+.container-fluid {
+    height: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 65%;
+    overflow: hidden;
+}
