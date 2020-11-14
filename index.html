@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    
     <!-- Image and text -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="../index.html"><img src="/assets/images/filmreel.png" width="30" height="30" class="d-inline-block align-top" alt=""> ML Movie Maker</a>
@@ -49,16 +50,19 @@
         </div>
     </nav>
 
-    <div class="jumbotron">
-        <h1 class="display-4">Cut to the chase</h1>
-        <p class="lead">ML Movie Maker is the world's first machine learning tool designed to test your ideas before you commit.
-            Bring your wildest visions to life without the mess.
-        </p>
-        <hr class="my-4">
-        <!-- <p>Sample text</p> -->
-        <a class="btn btn-success btn-lg" href="/assets/pages/mldeploy.html" role="button">Get started</a>
-    </div>
-    
+    <section id="topSection">
+        <div class="jumbotron">
+            <h1 class="display-4">Cut to the chase</h1>
+            <p class="lead">ML Movie Maker is the world's first machine learning tool designed to test your ideas before you commit.
+                Bring your wildest visions to life without the mess.
+            </p>
+            <hr class="my-4">
+            <!-- <p>Sample text</p> -->
+            <a class="btn btn-success btn-lg" href="/assets/pages/mldeploy.html" role="button">Get started</a>
+        </div>
+
+    </section>
+
     <section class="showcase">
         <div class="container-fluid p-0">
             
@@ -152,5 +156,14 @@
 
         </div>
     </section>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script src="/assets/js/main.js"></script>
+
 </body>
 
