@@ -1,14 +1,10 @@
 html {
-    height: 100%;
+
 }
 
 body {
-    height: 100%;
-    background-color: black;
-}
 
-#myNav {
-    background-color: #5cb85c;
+    background-color: black;
 }
 
 .jumbotron {
@@ -16,7 +12,14 @@ body {
 }
 
 .container-fluid {
-    height: 100%;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: black;
+}
+
+.container {
     padding-left: 0px;
     padding-right: 0px;
     background-color: black;
@@ -25,7 +28,6 @@ body {
 .row {
     margin-left: 0px;
     margin-right: 0px;
-    height: 65%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -39,19 +41,18 @@ body {
     align-items: center;
 }
 
-
-.btn-primary {
-    /* border-color: #5cb85c;
-    background-color: #5cb85c; */
+.btn-med {
+    margin-top: 10px;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: white;
 }
 
-h2 {
-    color: white;
-}
 
 .lead {
     color: white;
@@ -61,3 +62,41 @@ h2 {
     color: white;
 }
 
+.showcase .showcase-text {
+    padding: 3rem;
+  }
+
+.showcase .showcase-img {
+    min-height: 30rem;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .showcase .showcase-text {
+      padding: 7rem;
+    }
+}
+
+.testimonials {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    background-color: black;
+}
+  
+.testimonials .testimonial-item {
+    max-width: 18rem;
+}
+  
+.testimonials .testimonial-item img {
+    max-width: 12rem;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.carousel-item {
+    height: 90vh;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
