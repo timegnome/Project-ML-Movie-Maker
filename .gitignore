@@ -1,3 +1,6 @@
 *.twb
 *.twbr
 *.tsv
+
+*.DS_Store
+*DS_Store
