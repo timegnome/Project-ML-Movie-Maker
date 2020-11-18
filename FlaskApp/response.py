@@ -7,8 +7,8 @@ data = {
 
             "input1":
             {
-                "ColumnNames": ["Budget", "Keywords", "Genre", "Vote Average"],
-                "Values": [ [ "0", "0", "22", "0" ], [ "0", "0", "3", "0" ], ]
+                "ColumnNames": ["Budget", "Keywords", "Genre", "Vote Average", "Revenue"],
+                "Values": [ [ "0", "0", "0", "22", "0" ], [ "0", "0", "3", "0" ], ]
             },
     },
         "GlobalParameters": {

@@ -27,7 +27,7 @@ def home():
         data = {
             "Inputs": {
                 "input1": {
-                    "ColumnNames": ["budget", "keywords", "genre", "vote_average"],
+                    "ColumnNames": ["budget", "keywords", "genre", "vote_average", "revenue"],
                     "Values": [ [
                         0,
                         1,
@@ -110,7 +110,7 @@ def do_something_pretty(jsondata):
     # Build a placeholder for the cluster#,distance values
     #repstr = '<tr><td>%d</td><td>%s</td></tr>' * (valuelen-1)
     # print(repstr)
-    output='For a movie with a budget size of : '+value[2]+ "<br/>Our Algorithm would calculate the popularity to be: "+ value[4]
+    output='For a '+value[1]+ 'movie with a budget size of : '+value[2]+ "<br/>Our Algorithm would calculate the popularity to be: "+ value[4]
     # Build the entire html table for the results data representation
     #tablestr = 'Cluster assignment: %s<br><br><table border="1"><tr><th>Cluster</th><th>Distance From Center</th></tr>'+ repstr + "</table>"
     #return tablestr % data
