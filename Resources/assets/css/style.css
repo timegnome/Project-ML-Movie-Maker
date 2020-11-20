@@ -1,14 +1,13 @@
-/* section {
-    min-height:100vh; 
-} */
+@import url('https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 
 body {
     background-color: black;
 }
 
-.jumbotron {
+/* .jumbotron {
     background-color: black;
-}
+} */
 
 .container-fluid {
     padding-top: 7rem;
@@ -44,23 +43,154 @@ body {
     margin-top: 10px;
 }
 
+
+.lead {
+    color: white;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
-    color: white;
-}
-
-
-.lead {
-    color: white;
+  color:  white;
 }
 
 .rowtext {
     color: white;
 }
 
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    height: 50vh;
+    background: black;
+  }
+  
+  #hero .container {
+    padding-top: 72px;
+  }
+  
+  #hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+  }
+  
+  #hero h2 {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+  
+  #hero .btn-get-started {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px 11px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px 0 0 0;
+    color: #fff;
+    background: #2eff5f;
+  }
+  
+  #hero .btn-get-started:hover {
+    background: #21bd46;
+  }
+  
+  #hero .btn-watch-video {
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 0 8px 40px;
+    transition: 0.5s;
+    margin: 10px 0 0 25px;
+    color: #fff;
+    position: relative;
+  }
+    
+  #hero .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  }
+  
+  @media (max-width: 991px) {
+    #hero {
+      height: 100vh;
+      text-align: center;
+    }
+    #hero .animated {
+      -webkit-animation: none;
+      animation: none;
+    }
+    #hero .hero-img {
+      text-align: center;
+    }
+    #hero .hero-img img {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #hero h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 30px;
+    }
+    #hero .hero-img img {
+      width: 70%;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    #hero .hero-img img {
+      width: 80%;
+    }
+    #hero .btn-get-started {
+      font-size: 16px;
+      padding: 10px 24px 11px 24px;
+    }
+    #hero .btn-watch-video {
+      font-size: 16px;
+      padding: 10px 0 8px 40px;
+      margin-left: 20px;
+    }
+    #hero .btn-watch-video i {
+      font-size: 32px;
+      top: 7px;
+    }
+  }
+  
+  @-webkit-keyframes up-down {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes up-down {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+/*--------------------------------------------------------------
+# Showcase Section
+--------------------------------------------------------------*/
 .showcase .showcase-text {
     padding: 3rem;
   }
@@ -76,6 +206,9 @@ h5 {
     }
 }
 
+/*--------------------------------------------------------------
+# Team Section
+--------------------------------------------------------------*/
 .testimonials {
     padding-top: 7rem;
     padding-bottom: 7rem;
@@ -92,88 +225,10 @@ h5 {
 }
 
 /*--------------------------------------------------------------
-# Frequently Asked Questions
---------------------------------------------------------------*/
-.faq .faq-list {
-    padding: 0 100px;
-  }
-  
-  .faq .faq-list ul {
-    padding: 0;
-    list-style: none;
-  }
-  
-  .faq .faq-list li + li {
-    margin-top: 15px;
-  }
-  
-  .faq .faq-list li {
-    padding: 20px;
-    background: #fff;
-    border-radius: 4px;
-    position: relative;
-  }
-  
-  .faq .faq-list a {
-    display: block;
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 500;
-    padding: 0 30px;
-    outline: none;
-  }
-  
-  .faq .faq-list .icon-help {
-    font-size: 24px;
-    position: absolute;
-    right: 0;
-    left: 20px;
-    color: #47b2e4;
-  }
-  
-  .faq .faq-list .icon-show, .faq .faq-list .icon-close {
-    font-size: 24px;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  
-  .faq .faq-list p {
-    margin-bottom: 0;
-    padding: 10px 0 0 0;
-  }
-  
-  .faq .faq-list .icon-show {
-    display: none;
-  }
-  
-  .faq .faq-list a.collapsed {
-    color: #37517e;
-    transition: 0.3s;
-  }
-  
-  .faq .faq-list a.collapsed:hover {
-    color: #47b2e4;
-  }
-  
-  .faq .faq-list a.collapsed .icon-show {
-    display: inline-block;
-  }
-  
-  .faq .faq-list a.collapsed .icon-close {
-    display: none;
-  }
-  
-  @media (max-width: 1200px) {
-    .faq .faq-list {
-      padding: 0;
-    }
-  }
-
+# Carousel
+--------------------------------------------------------------*/ 
 .carousel-item {
-    height: 90vh;
+    height: 94vh;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -181,43 +236,100 @@ h5 {
     background-size: cover;
   }
 
-#topbutton {
-    display: inline-block;
-    background-color: #28a745;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    border-radius: 4px;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s, 
-      opacity .5s, visibility .5s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
+#carousel-title {
+    color: white;
 }
 
-#topbutton::after {
-    content: "\f077";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 2em;
-    line-height: 50px;
-    color: #fff;
+#carousel-caption {
+    color: white;
 }
 
-#topbutton:hover {
-    /* cursor: pointer; */
-    background-color: #218838;
+/*--------------------------------------------------------------
+# Top button
+--------------------------------------------------------------*/  
+.progress-wrap {
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	height: 46px;
+	width: 46px;
+	cursor: pointer;
+	display: block;
+	border-radius: 50px;
+	box-shadow: inset  0 0 0 2px #8d8d8d;
+	z-index: 10000;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(15px);
+	-webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.progress-wrap.active-progress {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+.progress-wrap::after {
+	position: absolute;
+	font-family: 'unicons';
+	content: '\e84b';
+	text-align: center;
+	line-height: 46px;
+	font-size: 24px;
+	color: #28a745;
+	left: 0;
+	top: 0;
+	height: 46px;
+	width: 46px;
+	cursor: pointer;
+	display: block;
+	z-index: 1;
+	-webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.progress-wrap:hover::after {
+	opacity: 0;
+}
+.progress-wrap::before {
+	position: absolute;
+	font-family: 'unicons';
+	content: '\e84b';
+	text-align: center;
+	line-height: 46px;
+	font-size: 30px;
+	opacity: 0;
+	background-color: #218838;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	left: 0;
+	top: 0;
+	height: 46px;
+	width: 46px;
+	cursor: pointer;
+	display: block;
+	z-index: 2;
+	-webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.progress-wrap:hover::before {
+	opacity: 1;
+}
+.progress-wrap svg path { 
+	fill: none; 
+}
+.progress-wrap svg.progress-circle path {
+	stroke: #28a745;
+	stroke-width: 4;
+	box-sizing:border-box;
+	-webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
 }
 
-#topbutton:active {
-    background-color: #218838;
-}
-
-#topbutton.show {
-    opacity: 1;
-    visibility: visible;
+/*--------------------------------------------------------------
+# Tableau Visualizations
+--------------------------------------------------------------*/ 
+.tableauPlaceholder {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
