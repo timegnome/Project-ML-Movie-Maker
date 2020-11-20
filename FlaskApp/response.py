@@ -7,9 +7,9 @@ data = {
 
             "input1":
             {
-                "ColumnNames": ["Budget", "Keywords", "Genre", "Vote Average"],
-                "Values": [ [ "0", "0", "22", "0" ], [ "0", "0", "3", "0" ], ]
-            },
+                "ColumnNames": ["Adult", "Genres", "Id", "Imdb Id", "Keywords", "Production Companies", "Production Countries", "Release Date", "Year", "Tagline", "Title", "Budget", "Popularity", "Runtime", "Vote Average", "Vote Count", "New Key", "Worldwide", "Domestic", "Foreign", "Maded_Profit", "Percent_Profit", "Good_Movie"],
+                "Values": [ [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ], [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ], ]
+                },
     },
         "GlobalParameters": {
 
@@ -18,7 +18,7 @@ data = {
 
 body = str.encode(json.dumps(data))
 url = os.environ.get('URL', '<URL>')
-api_key = os.environ.get('API_KEY', '<API_KEY>')
+api_key = os.environ.get('API_KEY', 'wkpEZmoIM5mUsyfoHuaqKg3zAef/t0fKA8lo8JX0Z6woAq2PnTFfSkMGGb0Xr/Suzw3PwZ4T2ikkWrTqhpNuYQ==')
 headers = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + api_key)}
 
 

@@ -7,8 +7,8 @@ from flask import render_template, request, redirect
 from FlaskApp import app
 from FlaskApp.forms import SubmissionForm
 
-MOVIE_KEY = os.environ.get('API_KEY', '<API_KEY>')
-MOVIE_URL = os.environ.get('URL', '<URL>')
+MOVIE_KEY = os.environ.get('API_KEY', 'wkpEZmoIM5mUsyfoHuaqKg3zAef/t0fKA8lo8JX0Z6woAq2PnTFfSkMGGb0Xr/Suzw3PwZ4T2ikkWrTqhpNuYQ==')
+MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/345892153439469ba1c49cf917869b53/execute?api-version=2.0&details=true')
 
 # Construct the HTTP request header
 HEADERS = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
