@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 
 body {
-    background-color: white;
+    background-color: black;
 }
 
 /* .jumbotron {
@@ -14,13 +14,13 @@ body {
     padding-bottom: 7rem;
     padding-left: 0px;
     padding-right: 0px;
-    background-color: white;
+    background-color: black;
 }
 
 .container {
     padding-left: 0px;
     padding-right: 0px;
-    /* background-color: white; */
+    background-color: black;
 }
 
 .row {
@@ -29,7 +29,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    /* background-color: white; */
+    background-color: black;
 }
 
 .img-responsive {
@@ -45,11 +45,19 @@ body {
 
 
 .lead {
-    color: black;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color:  white;
 }
 
 .rowtext {
-    color: black;
+    color: white;
 }
 
 /*--------------------------------------------------------------
@@ -57,8 +65,8 @@ body {
 --------------------------------------------------------------*/
 #hero {
     width: 100%;
-    height: 75vh;
-    background: #28a745;
+    height: 50vh;
+    background: black;
   }
   
   #hero .container {
@@ -204,7 +212,7 @@ body {
 .testimonials {
     padding-top: 7rem;
     padding-bottom: 7rem;
-    background-color: rgb(240, 240, 240);
+    background-color: black;
 }
   
 .testimonials .testimonial-item {
@@ -315,4 +323,13 @@ body {
 	box-sizing:border-box;
 	-webkit-transition: all 200ms linear;
     transition: all 200ms linear;
+}
+
+/*--------------------------------------------------------------
+# Tableau Visualizations
+--------------------------------------------------------------*/ 
+.tableauPlaceholder {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
