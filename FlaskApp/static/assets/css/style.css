@@ -242,6 +242,7 @@ h5 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    data-interval: "false";
   }
 
 .d-block {
