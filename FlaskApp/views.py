@@ -9,10 +9,12 @@ from FlaskApp.forms import SubmissionForm
 
 MOVIE_KEY = os.environ.get('API_KEY', 'wkpEZmoIM5mUsyfoHuaqKg3zAef/t0fKA8lo8JX0Z6woAq2PnTFfSkMGGb0Xr/Suzw3PwZ4T2ikkWrTqhpNuYQ==')
 MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/345892153439469ba1c49cf917869b53/execute?api-version=2.0&details=true')
-
+PROFIT_KEY =os.environ.get('API_KEY', 'TvKx1GRQnT1i0INoFns6tJWyBS+lLmyzGdQsAh6btiKH6SU6BArL+gjzYPLKTiVs44zbcwWqAHLx+y5ap+HCYQ==')
+PROFIT_URL =  os.environ.get('URL',  'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/189cf2c6c4474817bdb9b6881d1150e9/execute?api-version=2.0&details=true')
 # Construct the HTTP request header
-HEADERS = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
-print(app.url_map)
+HEADERS1 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
+HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
+# print(app.url_map)
 # Main app page/route
 @app.route('/')
 @app.route('/home')
@@ -25,7 +27,7 @@ def home():
         # message = 'Our movie form'
     )
 
-@app.route('/mldeploy',  methods = ['GET', 'POST'])
+@app.route('/mldeployRating',  methods = ['GET', 'POST'])
 def rating():
     form = SubmissionForm(request.form)
 
@@ -36,12 +38,23 @@ def rating():
         data = {
             "Inputs": {
                 "input1": {
-                    "ColumnNames": ["Adult", "Genres", "Id", "Imdb Id", "Keywords", "Production Companies", "Production Countries", "Release Date", "Year", "Tagline", "Title", "Budget", "Popularity", "Runtime", "Vote Average", "Vote Count", "New Key", "Worldwide", "Domestic", "Foreign", "Maded_Profit", "Percent_Profit", "Good_Movie"],
-                    "Values": [
-                        form.title.data.lower(),
-                         [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ],
-                          [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ]
-                  ]
+                    "ColumnNames":[
+                                    "Genres",
+                                    "Production Companies",
+                                    "Production Countries",
+                                    "New Key",
+                                    "Percent_Profit",
+                                    "Good_Movie"
+                                    ],
+                                    "Values": [
+                                    [
+                                        '['+ ','.join([f'{x}' for x in form.genres.data.lower().split(',')])+']',
+                                        "['Twentieth Century Fox Film Corporation']",
+                                        "['United States of America']",
+                                        "['terrorist', 'hostage', 'explosive']",
+                                        form.percent_Profit.data+'%',
+                                        'A'
+                                    ]
                 }
             },
             "GlobalParameters": {}
@@ -51,7 +64,7 @@ def rating():
         body = str.encode(json.jumps(data))
 
         # Formulate the request
-        req = urllib.request.Request(MOVIE_URL, body, HEADERS)
+        req = urllib.request.Request(MOVIE_URL, body, HEADERS1)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -63,7 +76,7 @@ def rating():
             # result = json.dumps(result, indent=4, sort_keys=True)
             return render_template(
                 'mldeployRating.html',
-                title = "Fill this in later:",
+                title = "Movie Rating:",
                 result = result)
         # An HTTP error
         except urllib.error.HTTPError as err:
@@ -82,7 +95,7 @@ def rating():
         year = datetime.now().year,
         message = 'Our movie form'
     )
-@app.route('/mldeploy',  methods = ['GET', 'POST'])
+@app.route('/mldeployProfit',  methods = ['GET', 'POST'])
 def profit():
     form = SubmissionForm(request.form)
 
@@ -93,12 +106,24 @@ def profit():
         data = {
             "Inputs": {
                 "input1": {
-                    "ColumnNames": ["Adult", "Genres", "Id", "Imdb Id", "Keywords", "Production Companies", "Production Countries", "Release Date", "Year", "Tagline", "Title", "Budget", "Popularity", "Runtime", "Vote Average", "Vote Count", "New Key", "Worldwide", "Domestic", "Foreign", "Maded_Profit", "Percent_Profit", "Good_Movie"],
-                    "Values": [
-                        form.title.data.lower(),
-                         [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ],
-                          [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ]
-                  ]
+                    "ColumnNames": [
+                                    "Genres",
+                                    "Production Companies",
+                                    "Production Countries",
+                                    "New Key",
+                                    "Percent_Profit",
+                                    "Good_Movie"
+                                    ],
+                                    "Values": [
+                                    [
+                                        '['+ ','.join([f'{x}' for x in form.genres.data.lower().split(',')])+']',
+                                        "['Twentieth Century Fox Film Corporation']",
+                                        "['United States of America']",
+                                        "['terrorist', 'hostage', 'explosive']",
+                                        '90%',
+                                        form.good_Movie.data.upper()
+                                    ]
+                                    ]
                 }
             },
             "GlobalParameters": {}
@@ -108,7 +133,7 @@ def profit():
         body = str.encode(json.jumps(data))
 
         # Formulate the request
-        req = urllib.request.Request(MOVIE_URL, body, HEADERS)
+        req = urllib.request.Request(PROFIT_URL, body, HEADERS2)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -120,7 +145,7 @@ def profit():
             # result = json.dumps(result, indent=4, sort_keys=True)
             return render_template(
                 'mldeployProfit.html',
-                title = "Fill this in later:",
+                title = "Percent Profit:",
                 result = result)
         # An HTTP error
         except urllib.error.HTTPError as err:
@@ -143,28 +168,19 @@ def profit():
 @app.route('/methodology')
 def about():
     return render_template(
-        'methodology.html',
-        title = 'About',
-        year = datetime.now().year,
-        message = 'Our descriptor page'
+        'methodology.html'
     )
 
 @app.route('/visualizations')
 def viz():
     return render_template(
-        'visualizations.html',
-        title = 'About',
-        year = datetime.now().year,
-        message = 'Our descriptor page'
+        'visualizations.html'
     )
 
 @app.route('/dataset')
 def dataset():
     return render_template(
-        'dataset.html',
-        title = 'About',
-        year = datetime.now().year,
-        message = 'Our descriptor page'
+        'dataset.html'
     )
 def do_something_pretty(jsondata):
     import itertools
