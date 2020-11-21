@@ -12,12 +12,21 @@ MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/w
 
 # Construct the HTTP request header
 HEADERS = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
-
+print(app.url_map)
 # Main app page/route
-@app.route('/', methods = ['GET', 'POST'])
-@app.route('/home', methods = ['GET', 'POST'])
+@app.route('/')
+@app.route('/home')
 def home():
     
+    return render_template (
+        'index.html'
+        # title = 'Project ML Movie Maker',
+        # year = datetime.now().year,
+        # message = 'Our movie form'
+    )
+
+@app.route('/form',  methods = ['GET', 'POST'])
+def contact():
     form = SubmissionForm(request.form)
 
     # Form has been submitted
@@ -27,13 +36,10 @@ def home():
         data = {
             "Inputs": {
                 "input1": {
-                    "ColumnNames": ["budget", "keywords", "genre", "vote_average"],
-                    "Values": [ [
-                        0,
-                        1,
-                        form.title.data.lower(),
-                        0
-                    ]
+                    "ColumnNames": ["Adult", "Genres", "Id", "Imdb Id", "Keywords", "Production Companies", "Production Countries", "Release Date", "Year", "Tagline", "Title", "Budget", "Popularity", "Runtime", "Vote Average", "Vote Count", "New Key", "Worldwide", "Domestic", "Foreign", "Maded_Profit", "Percent_Profit", "Good_Movie"],
+                    "Values": [
+                         [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ],
+                          [ "0", "value", "0", "value", "value", "value", "value", "", "0", "value", "value", "0", "0", "0", "0", "0", "value", "0", "0", "0", "0", "value", "value" ]
                   ]
                 }
             },
@@ -55,7 +61,7 @@ def home():
             result = do_something_pretty(result)
             # result = json.dumps(result, indent=4, sort_keys=True)
             return render_template(
-                'result.html',
+                'method.html',
                 title = "Fill this in later:",
                 result = result)
         # An HTTP error
@@ -76,19 +82,10 @@ def home():
         message = 'Our movie form'
     )
 
-@app.route('/contact')
-def contact():
-    return render_template(
-        'contact.html',
-        title = 'Contact',
-        year = datetime.now().year,
-        message = 'Our contact page'
-    )
-
 @app.route('/about')
 def about():
     return render_template(
-        'about.html',
+        'methodology.html',
         title = 'About',
         year = datetime.now().year,
         message = 'Our descriptor page'
