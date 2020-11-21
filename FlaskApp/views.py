@@ -16,11 +16,11 @@ HEADERS1 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MO
 HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + PROFIT_KEY)}
 # print(app.url_map)
 # Main app page/route
+
 @app.route('/')
 @app.route('/index')
 @app.route('/home')
 def home():
-    
     return render_template (
         'index.html'
         # title = 'Project ML Movie Maker',
@@ -28,13 +28,12 @@ def home():
         # message = 'Our movie form'
     )
 
+
 @app.route('/mldeployRating',  methods = ['GET', 'POST'])
 def rating():
     form = SubmissionForm(request.form)
 
     # Form has been submitted
-    print('This sucks')
-    print(form.validate())
     if request.method == 'POST' and form.validate():
         # Plug in the data into a dictionary object
         # -data from the input form
@@ -65,10 +64,10 @@ def rating():
         }
 
         # Serialize the input data into json string
-        body = str.encode(json.jumps(data))
+        body = str.encode(json.dumps(data))
         print(body)
         # Formulate the request
-        req = urllib.request.Request(MOVIE_URL, body, HEADERS2)
+        req = urllib.request.Request(PROFIT_URL, body, HEADERS2)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -97,7 +96,7 @@ def rating():
     return render_template (
         'form2.html',
         form = form,
-        title = 'Run App',
+        title = form.validate(),
         year = datetime.now().year,
         message = 'Our movie form'
     )
@@ -138,10 +137,10 @@ def profit():
         }
 
         # Serialize the input data into json string
-        body = str.encode(json.jumps(data))
+        body = str.encode(json.dumps(data))
 
         # Formulate the request
-        req = urllib.request.Request(PROFIT_URL, body, HEADERS1)
+        req = urllib.request.Request(MOVIE_URL, body, HEADERS1)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -210,7 +209,11 @@ def do_something_pretty(jsondata):
     # Build a placeholder for the cluster#,distance values
     #repstr = '<tr><td>%d</td><td>%s</td></tr>' * (valuelen-1)
     # print(repstr)
-    output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ value
+    labels =['10%-', '20-10%', '30-20%', '40-30%', '50-40%', '60-50%', '70-60%', '80-70%', '90%+', '90-80%']
+    words = ''
+    for x in value:
+        words = words+'  <br> '+x
+    output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
     # Build the entire html table for the results data representation
     #tablestr = 'Cluster assignment: %s<br><br><table border="1"><tr><th>Cluster</th><th>Distance From Center</th></tr>'+ repstr + "</table>"
     #return tablestr % data

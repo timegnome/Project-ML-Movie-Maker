@@ -4,7 +4,9 @@
 body {
     background-color: black;
 }
-
+#text{
+  color: white;
+}
 /* .jumbotron {
     background-color: black;
 } */
