@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Determine the Rating of your movie based on the it's Genres, Production Companies, Production Countries, Keywords, and Percent Profit</h2>
+<form method=post>
+    <dl>
+        <p>
+            <h3>Genres</h3>
+            Enter the Genres of the movie you wish to get the profit% prediction <br/>
+            <p>"Animation, Comedy, Family, Adventure, Fantasy, Romance, Drama,
+                 Action, Crime, Thriller, Horror, History, Mystery,
+                  War, Foreign, Music, Documentary, Western"</p><br/>
+            {{form.genres}}
+        </p>
+
+        <p>
+            <h3>Production Companies</h3>
+            Enter the Production Companies of the movie you wish to get the profit% prediction <br/><br/>
+            <p>Twentieth Century Fox Film Corporation</p>
+        </p>
+        
+        <p>
+            <h3>Production Countries</h3>
+            Enter the Production Countries of the movie you wish to get the profit% prediction <br/><br/>
+            <P>United States of America</P>
+        </p>
+
+        <p>
+            <h3>Keywords</h3>
+            Enter the Keywords of the movie you wish to get the profit% prediction <br/><br/>
+            <p>['terrorist', 'hostage', 'explosive']</p>>
+        </p>
+
+        <p>
+            <h3>Percent Profit</h3>
+            Enter the Percent Profit of the movie you wish to get the profit% prediction <br/><br/>
+            {{form.percent_Profit}}
+        </p>
+    </dl>
+    <p><input type="submit" value="submit"></p>
+ </form>
+{% endblock %}
