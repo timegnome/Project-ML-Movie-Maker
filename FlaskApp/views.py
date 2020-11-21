@@ -13,10 +13,11 @@ PROFIT_KEY =os.environ.get('API_KEY', 'TvKx1GRQnT1i0INoFns6tJWyBS+lLmyzGdQsAh6bt
 PROFIT_URL =  os.environ.get('URL',  'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/189cf2c6c4474817bdb9b6881d1150e9/execute?api-version=2.0&details=true')
 # Construct the HTTP request header
 HEADERS1 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
-HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
+HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + PROFIT_KEY)}
 # print(app.url_map)
 # Main app page/route
 @app.route('/')
+@app.route('/index')
 @app.route('/home')
 def home():
     
@@ -32,6 +33,8 @@ def rating():
     form = SubmissionForm(request.form)
 
     # Form has been submitted
+    print('This sucks')
+    print(form.validate())
     if request.method == 'POST' and form.validate():
         # Plug in the data into a dictionary object
         # -data from the input form
@@ -55,6 +58,7 @@ def rating():
                                         form.percent_Profit.data+'%',
                                         'A'
                                     ]
+                                ]
                 }
             },
             "GlobalParameters": {}
@@ -62,9 +66,9 @@ def rating():
 
         # Serialize the input data into json string
         body = str.encode(json.jumps(data))
-
+        print(body)
         # Formulate the request
-        req = urllib.request.Request(MOVIE_URL, body, HEADERS1)
+        req = urllib.request.Request(MOVIE_URL, body, HEADERS2)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -77,6 +81,7 @@ def rating():
             return render_template(
                 'mldeployRating.html',
                 title = "Movie Rating:",
+                year = datetime.now().year,
                 result = result)
         # An HTTP error
         except urllib.error.HTTPError as err:
@@ -84,22 +89,25 @@ def rating():
             return render_template (
                 'mldeployRating.html',
                 title = 'There was an error',
+                year = datetime.now().year,
                 result = result)
             # print(err)
     
     # Serve up the input form
     return render_template (
-        'mldeployRating.html',
+        'form2.html',
         form = form,
         title = 'Run App',
         year = datetime.now().year,
         message = 'Our movie form'
     )
+
 @app.route('/mldeployProfit',  methods = ['GET', 'POST'])
 def profit():
     form = SubmissionForm(request.form)
 
     # Form has been submitted
+    print(form.validate())
     if request.method == 'POST' and form.validate():
         # Plug in the data into a dictionary object
         # -data from the input form
@@ -123,7 +131,7 @@ def profit():
                                         '90%',
                                         form.good_Movie.data.upper()
                                     ]
-                                    ]
+                                ]
                 }
             },
             "GlobalParameters": {}
@@ -133,7 +141,7 @@ def profit():
         body = str.encode(json.jumps(data))
 
         # Formulate the request
-        req = urllib.request.Request(PROFIT_URL, body, HEADERS2)
+        req = urllib.request.Request(PROFIT_URL, body, HEADERS1)
 
         # Send this request to the AML service and render the results on page
         try:
@@ -146,6 +154,7 @@ def profit():
             return render_template(
                 'mldeployProfit.html',
                 title = "Percent Profit:",
+                year = datetime.now().year,
                 result = result)
         # An HTTP error
         except urllib.error.HTTPError as err:
@@ -153,12 +162,14 @@ def profit():
             return render_template (
                 'mldeployProfit.html',
                 title = 'There was an error',
+                year = datetime.now().year,
                 result = result)
             # print(err)
     
-    # Serve up the input form
+    # Serve up the input form\
+    print (form)
     return render_template (
-        'mldeployProfit.html',
+        'form1.html',
         form = form,
         title = 'Run App',
         year = datetime.now().year,
@@ -177,11 +188,12 @@ def viz():
         'visualizations.html'
     )
 
-@app.route('/dataset')
-def dataset():
+@app.route('/mlprocess')
+def mlprocess():
     return render_template(
-        'dataset.html'
+        'mlprocess.html'
     )
+
 def do_something_pretty(jsondata):
     import itertools
 
@@ -198,7 +210,7 @@ def do_something_pretty(jsondata):
     # Build a placeholder for the cluster#,distance values
     #repstr = '<tr><td>%d</td><td>%s</td></tr>' * (valuelen-1)
     # print(repstr)
-    output='For a movie with a budget size of : '+value[2]+ "<br/>Our Algorithm would calculate the popularity to be: "+ value[4]
+    output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ value
     # Build the entire html table for the results data representation
     #tablestr = 'Cluster assignment: %s<br><br><table border="1"><tr><th>Cluster</th><th>Distance From Center</th></tr>'+ repstr + "</table>"
     #return tablestr % data
