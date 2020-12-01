@@ -54,7 +54,7 @@ def rating():
                                         "['Twentieth Century Fox Film Corporation']",
                                         "['United States of America']",
                                         "['terrorist', 'hostage', 'explosive']",
-                                        form.percent_Profit.data+'%',
+                                        form.percent_Profit.data,
                                         'A'
                                     ]
                                 ]
@@ -94,7 +94,7 @@ def rating():
     
     # Serve up the input form
     return render_template (
-        'form2.html',
+        'ratingform.html',
         form = form,
         title = form.validate(),
         year = datetime.now().year,
@@ -127,7 +127,7 @@ def profit():
                                         "['Twentieth Century Fox Film Corporation']",
                                         "['United States of America']",
                                         "['terrorist', 'hostage', 'explosive']",
-                                        '90%',
+                                        '(10.635, 6552255.0]',
                                         form.good_Movie.data.upper()
                                     ]
                                 ]
@@ -168,7 +168,7 @@ def profit():
     # Serve up the input form\
     print (form)
     return render_template (
-        'form1.html',
+        'profitform.html',
         form = form,
         title = 'Run App',
         year = datetime.now().year,
