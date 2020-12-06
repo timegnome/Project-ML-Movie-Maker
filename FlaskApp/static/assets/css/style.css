@@ -228,26 +228,20 @@ h5 {
 # Carousel
 --------------------------------------------------------------*/ 
 
-.carousel {
-  width:640px;
-  height:360px;
-}
-
 .carousel-item {
     height: 50vh;
-    width: auto;
+    width: 75%;
     margin: auto;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    data-interval: "false";
+    
   }
 
 .d-block {
     margin: auto;
-    width: auto;
 }
 
 #carousel-title {
