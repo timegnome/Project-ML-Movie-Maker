@@ -6,5 +6,5 @@ class SubmissionForm(Form):
     prodComp = StringField('prodComp', [validators.Length(min=0, max=200)])
     prodCont = StringField('prodCont', [validators.Length(min=0, max=200)])
     new_Key = StringField('New Key', [validators.Length(min=0, max=100)])
-    percent_Profit = StringField('percent_Profit', [validators.Length(min=0, max=10)])
-    good_Movie = StringField('good_Movie', [validators.Length(min=0, max=10)])
+    percent_Profit = StringField('percent_Profit', [validators.Length(min=0, max=20)])
+    good_Movie = StringField('good_Movie', [validators.Length(min=0, max=20)])
