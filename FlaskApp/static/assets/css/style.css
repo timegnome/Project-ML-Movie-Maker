@@ -228,35 +228,11 @@ h5 {
 # google slides
 --------------------------------------------------------------*/ 
 
-<<<<<<< Updated upstream
-.carousel-item {
-    height: 50vh;
-    width: 75%;
-    margin: auto;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    
-  }
-
-.d-block {
-    margin: auto;
-}
-=======
 .googleslide {
+  margin: 0px auto;
+  overflow: hidden;
   text-align: center;
-    width: 100%;
-    vertical-align: middle;
-    height: 100%;
-    display: table-cell;
 }
-
-
->>>>>>> Stashed changes
-
-
 
 
 /*--------------------------------------------------------------
