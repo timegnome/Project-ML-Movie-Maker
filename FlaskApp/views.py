@@ -90,7 +90,7 @@ def rating():
                 'mldeployRating.html',
                 title = 'There was an error',
                 year = datetime.now().year,
-                result = data)
+                result = result)
             # print(err)
     
     # Serve up the input form
