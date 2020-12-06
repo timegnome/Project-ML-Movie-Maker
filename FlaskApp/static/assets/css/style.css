@@ -225,9 +225,10 @@ h5 {
 }
 
 /*--------------------------------------------------------------
-# Carousel
+# google slides
 --------------------------------------------------------------*/ 
 
+<<<<<<< Updated upstream
 .carousel-item {
     height: 50vh;
     width: 75%;
@@ -243,14 +244,20 @@ h5 {
 .d-block {
     margin: auto;
 }
-
-#carousel-title {
-    color: white;
+=======
+.googleslide {
+  text-align: center;
+    width: 100%;
+    vertical-align: middle;
+    height: 100%;
+    display: table-cell;
 }
 
-#carousel-caption {
-    color: white;
-}
+
+>>>>>>> Stashed changes
+
+
+
 
 /*--------------------------------------------------------------
 # Top button
