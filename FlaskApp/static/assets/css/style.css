@@ -227,37 +227,15 @@ h5 {
 }
 
 /*--------------------------------------------------------------
-# Carousel
+# google slides
 --------------------------------------------------------------*/ 
 
-.carousel {
-  width:640px;
-  height:360px;
+.googleslide {
+  margin: 0px auto;
+  overflow: hidden;
+  text-align: center;
 }
 
-.carousel-item {
-    height: 50vh;
-    width: auto;
-    margin: auto;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
-.d-block {
-    margin: auto;
-    width: auto;
-}
-
-#carousel-title {
-    color: white;
-}
-
-#carousel-caption {
-    color: white;
-}
 
 /*--------------------------------------------------------------
 # Top button
