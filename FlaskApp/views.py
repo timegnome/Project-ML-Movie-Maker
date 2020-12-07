@@ -33,7 +33,7 @@ def home():
 @app.route('/mldeployRating',  methods = ['GET', 'POST'])
 def rating():
     form = SubmissionForm(request.form)
-
+    
     # Form has been submitted
     if request.method == 'POST' and form.validate():
         # Plug in the data into a dictionary object
@@ -66,7 +66,7 @@ def rating():
 
         # Serialize the input data into json string
         body = str.encode(json.dumps(data))
-        print(body)
+        # print(body)
         # Formulate the request
         req = urllib.request.Request(MOVIE_URL, body, HEADERS1)
 
@@ -97,7 +97,7 @@ def rating():
     return render_template (
         'ratingform.html',
         form = form,
-        title = form.validate(),
+        title = 'Rating Prediction',
         year = datetime.now().year,
         message = 'Our movie form'
     )
@@ -129,7 +129,7 @@ def profit():
                                         "['United States of America']",
                                         "['terrorist', 'hostage', 'explosive']",
                                         '(10.635, 6552255.0]',
-                                        form.good_Movie.data.upper()
+                                        form.good_Movie.data
                                     ]
                                 ]
                 }
@@ -237,7 +237,10 @@ def do_something_pretty(jsondata, ml):
           "Scored Labels"]
         words = ''
         for x in zip(value, labels):
-            words = words+ f'  <br> {x[1]}: {x[0]}'
+            try:
+                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])))}'
+            except:
+                words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
         output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
     # Convert values (a list) to a list of tuples [(cluster#,distance),...]
     # valuetuple = list(zip(range(valuelen-1), value[1:(valuelen)]))
