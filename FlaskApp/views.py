@@ -1,11 +1,12 @@
 import json
 import urllib.request
-import os
+import os, sys
 
 from datetime import datetime
 from flask import render_template, request, redirect
 from FlaskApp import app
 from FlaskApp.forms import SubmissionForm
+import random
 
 MOVIE_KEY = os.environ.get('API_KEY', '49RCpal8zEPblLmrWM9OZ66n9FKhQEyuNxE8FrT3qBK6CQqzkq9XmjF83quU+qWo4FJoUztHYac+IB5c3qTBpg==')
 MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/783a1375c53c445790afcd94a0831b7b/execute?api-version=2.0&details=true')
@@ -14,6 +15,14 @@ PROFIT_URL =  os.environ.get('URL',  'https://ussouthcentral.services.azureml.ne
 # Construct the HTTP request header
 HEADERS1 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MOVIE_KEY)}
 HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + PROFIT_KEY)}
+
+# initialize the seed for random movie images
+random.seed(1)
+
+# get path for images
+path = "FlaskApp/static/assets/images/movies/"
+movies = os.listdir( path )
+# print(movies)
 # print(app.url_map)
 # Main app page/route
 
@@ -51,10 +60,10 @@ def rating():
                                     ],
                                     "Values": [
                                     [
-                                        '['+ ','.join([f'{x}' for x in form.genres.data.split(',')])+']',
-                                        "['Twentieth Century Fox Film Corporation']",
-                                        "['United States of America']",
-                                        "['terrorist', 'hostage', 'explosive']",
+                                        f'{form.genres.data}',
+                                        f'{form.prodComp.data}',
+                                        f'{form.prodCont.data}',
+                                        f'{form.new_Key.data}',
                                         form.percent_Profit.data,
                                         'A'
                                     ]
@@ -82,7 +91,9 @@ def rating():
                 'mldeployRating.html',
                 title = "Movie Rating:",
                 year = datetime.now().year,
-                result = result)
+                result = result,
+                form = form,
+                movie = 'assets/images/movies/' + movies[random.randint(0,len(movies)-1)])
         # An HTTP error
         except urllib.error.HTTPError as err:
             result = "The request failed with status code: " + str(err.code)
@@ -90,7 +101,9 @@ def rating():
                 'mldeployRating.html',
                 title = 'There was an error',
                 year = datetime.now().year,
-                result = result)
+                result = result,
+                form = form,
+                movie = 'assets/images/movies/' + movies[random.randint(0,len(movies)-1)])
             # print(err)
     
     # Serve up the input form
@@ -124,10 +137,10 @@ def profit():
                                     ],
                                     "Values": [
                                     [
-                                        '['+ ','.join([f'{x}' for x in form.genres.data.split(',')])+']',
-                                        "['Twentieth Century Fox Film Corporation']",
-                                        "['United States of America']",
-                                        "['terrorist', 'hostage', 'explosive']",
+                                        f'{form.genres.data}',
+                                        f'{form.prodComp.data}',
+                                        f'{form.prodCont.data}',
+                                        f'{form.new_Key.data}',
                                         '(10.635, 6552255.0]',
                                         form.good_Movie.data
                                     ]
@@ -155,7 +168,9 @@ def profit():
                 'mldeployProfit.html',
                 title = "Percent Profit:",
                 year = datetime.now().year,
-                result = result)
+                result = result,
+                form = form,
+                movie = 'assets/images/movies/' + movies[random.randint(0,len(movies)-1)] )
         # An HTTP error
         except urllib.error.HTTPError as err:
             result = "The request failed with status code: " + str(err.code)
@@ -163,11 +178,13 @@ def profit():
                 'mldeployProfit.html',
                 title = 'There was an error',
                 year = datetime.now().year,
-                result = result)
+                result = result,
+                form = form,
+                movie = 'assets/images/movies/' + movies[random.randint(0,len(movies)-1)])
             # print(err)
     
     # Serve up the input form\
-    print (form)
+    # print (form)
     return render_template (
         'profitform.html',
         form = form,
@@ -212,39 +229,40 @@ def do_something_pretty(jsondata, ml):
                 words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
             except:
                 words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
-        output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
+        output='Our Algorithm would calculate the probability for each label to be: '+ words
     else:
         
         
-        labels =["Percent_Profit",
-          "Scored Probabilities for Class \"(-0.0009794, 0.19]\"",
-          "Scored Probabilities for Class \"(0.19, 0.369]\"",
-          "Scored Probabilities for Class \"(0.369, 0.531]\"",
-          "Scored Probabilities for Class \"(0.531, 0.707]\"",
-          "Scored Probabilities for Class \"(0.707, 0.905]\"",
-          "Scored Probabilities for Class \"(0.905, 1.077]\"",
-          "Scored Probabilities for Class \"(1.077, 1.252]\"",
-          "Scored Probabilities for Class \"(1.252, 1.509]\"",
-          "Scored Probabilities for Class \"(1.509, 1.739]\"",
-          "Scored Probabilities for Class \"(1.739, 2.004]\"",
-          "Scored Probabilities for Class \"(10.635, 6552255.0]\"",
-          "Scored Probabilities for Class \"(2.004, 2.223]\"",
-          "Scored Probabilities for Class \"(2.223, 2.531]\"",
-          "Scored Probabilities for Class \"(2.531, 2.852]\"",
-          "Scored Probabilities for Class \"(2.852, 3.176]\"",
-          "Scored Probabilities for Class \"(3.176, 3.614]\"",
-          "Scored Probabilities for Class \"(3.614, 4.227]\"",
-          "Scored Probabilities for Class \"(4.227, 5.085]\"",
-          "Scored Probabilities for Class \"(5.085, 6.787]\"",
-          "Scored Probabilities for Class \"(6.787, 10.635]\"",
-          "Scored Labels"]
-        words = ''
-        for x in zip(value, labels):
+        # labels =["Percent_Profit",
+        #   "Scored Probabilities for Class \"(-0.0009794, 0.19]\"",
+        #   "Scored Probabilities for Class \"(0.19, 0.369]\"",
+        #   "Scored Probabilities for Class \"(0.369, 0.531]\"",
+        #   "Scored Probabilities for Class \"(0.531, 0.707]\"",
+        #   "Scored Probabilities for Class \"(0.707, 0.905]\"",
+        #   "Scored Probabilities for Class \"(0.905, 1.077]\"",
+        #   "Scored Probabilities for Class \"(1.077, 1.252]\"",
+        #   "Scored Probabilities for Class \"(1.252, 1.509]\"",
+        #   "Scored Probabilities for Class \"(1.509, 1.739]\"",
+        #   "Scored Probabilities for Class \"(1.739, 2.004]\"",
+        #   "Scored Probabilities for Class \"(10.635, 6552255.0]\"",
+        #   "Scored Probabilities for Class \"(2.004, 2.223]\"",
+        #   "Scored Probabilities for Class \"(2.223, 2.531]\"",
+        #   "Scored Probabilities for Class \"(2.531, 2.852]\"",
+        #   "Scored Probabilities for Class \"(2.852, 3.176]\"",
+        #   "Scored Probabilities for Class \"(3.176, 3.614]\"",
+        #   "Scored Probabilities for Class \"(3.614, 4.227]\"",
+        #   "Scored Probabilities for Class \"(4.227, 5.085]\"",
+        #   "Scored Probabilities for Class \"(5.085, 6.787]\"",
+        #   "Scored Probabilities for Class \"(6.787, 10.635]\"",
+        #   "Scored Labels"]
+        # words = ''
+        percPrft = 0.0
+        for x in value[7:21]:
             try:
-                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
+                percPrft = percPrft + float(x)*100
             except:
-                words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
-        output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
+                None
+        output=f'Our Algorithm would calculate the probability for a profit to be: {round(percPrft, 2)}%'
     # Convert values (a list) to a list of tuples [(cluster#,distance),...]
     # valuetuple = list(zip(range(valuelen-1), value[1:(valuelen)]))
     # Convert the list of tuples to one long list (flatten it)
