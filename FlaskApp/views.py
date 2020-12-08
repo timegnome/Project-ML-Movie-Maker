@@ -7,8 +7,8 @@ from flask import render_template, request, redirect
 from FlaskApp import app
 from FlaskApp.forms import SubmissionForm
 
-MOVIE_KEY = os.environ.get('API_KEY', 'wkpEZmoIM5mUsyfoHuaqKg3zAef/t0fKA8lo8JX0Z6woAq2PnTFfSkMGGb0Xr/Suzw3PwZ4T2ikkWrTqhpNuYQ==')
-MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/345892153439469ba1c49cf917869b53/execute?api-version=2.0&details=true')
+MOVIE_KEY = os.environ.get('API_KEY', '49RCpal8zEPblLmrWM9OZ66n9FKhQEyuNxE8FrT3qBK6CQqzkq9XmjF83quU+qWo4FJoUztHYac+IB5c3qTBpg==')
+MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/783a1375c53c445790afcd94a0831b7b/execute?api-version=2.0&details=true')
 PROFIT_KEY = os.environ.get('API_KEY', 'TvKx1GRQnT1i0INoFns6tJWyBS+lLmyzGdQsAh6btiKH6SU6BArL+gjzYPLKTiVs44zbcwWqAHLx+y5ap+HCYQ==')
 PROFIT_URL =  os.environ.get('URL',  'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/189cf2c6c4474817bdb9b6881d1150e9/execute?api-version=2.0&details=true')
 # Construct the HTTP request header
