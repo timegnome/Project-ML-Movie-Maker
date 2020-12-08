@@ -171,7 +171,7 @@ def profit():
     return render_template (
         'profitform.html',
         form = form,
-        title = 'Run App',
+        title = 'Profit Prediction',
         year = datetime.now().year,
         message = 'Our movie form'
     )
