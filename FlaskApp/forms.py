@@ -3,7 +3,7 @@ from wtforms import Form, StringField, TextAreaField, validators, SelectField, S
 
 class SubmissionForm(Form):
     # genres = StringField('Genres', [validators.Length(min=5, max=100)])
-    genres = SelectMultipleField('Genres', choices=[('Animation', 'Animation'), ('Comedy', 'Comedy'), ('Family', 'Family'), ('Adventure', 'Adventure'), ('Fantasy', 'Fantasy'), ('Romance', 'Romance'), ('Drama', 'Drama'), ('Action', 'Action'), ('Crime', 'Crime'), ('Thriller', 'Thriller'), ('Horror', 'Horror'), ('History', 'History'), ('Mystery', 'Mystery'), ('War', 'War'), ('Foreign', 'Foreign'), ('Music', 'Music'), ('Documentary', 'Documentary'), ('Western', 'Western')], default = 'Action')
+    genres = SelectField('Genres', choices=[('Animation', 'Animation'), ('Comedy', 'Comedy'), ('Family', 'Family'), ('Adventure', 'Adventure'), ('Fantasy', 'Fantasy'), ('Romance', 'Romance'), ('Drama', 'Drama'), ('Action', 'Action'), ('Crime', 'Crime'), ('Thriller', 'Thriller'), ('Horror', 'Horror'), ('History', 'History'), ('Mystery', 'Mystery'), ('War', 'War'), ('Foreign', 'Foreign'), ('Music', 'Music'), ('Documentary', 'Documentary'), ('Western', 'Western')], default = 'Action')
     prodComp = StringField('prodComp', [validators.Length(min=0, max=200)])
     prodCont = StringField('prodCont', [validators.Length(min=0, max=200)])
     new_Key = StringField('New Key', [validators.Length(min=0, max=100)])
