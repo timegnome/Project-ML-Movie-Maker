@@ -208,7 +208,10 @@ def do_something_pretty(jsondata, ml):
           "Scored Labels"]
         words = ''
         for x in zip(value, labels):
-            words = words+ f'  <br> {x[1]}: {x[0]}'
+            try:
+                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
+            except:
+                words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
         output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
     else:
         
@@ -238,7 +241,7 @@ def do_something_pretty(jsondata, ml):
         words = ''
         for x in zip(value, labels):
             try:
-                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])))}'
+                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
             except:
                 words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
         output='For a movie with selected inputs <br/>Our Algorithm would calculate the probability for each label to be: '+ words
