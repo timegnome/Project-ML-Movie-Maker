@@ -80,7 +80,7 @@ def rating():
             # result = json.dumps(result, indent=4, sort_keys=True)
             return render_template(
                 'mldeployRating.html',
-                title = "Movie Rating",
+                title = "Movie Rating:",
                 year = datetime.now().year,
                 result = result)
         # An HTTP error
@@ -153,7 +153,7 @@ def profit():
             # result = json.dumps(result, indent=4, sort_keys=True)
             return render_template(
                 'mldeployProfit.html',
-                title = "Probability of Making Profit",
+                title = "Percent Profit:",
                 year = datetime.now().year,
                 result = result)
         # An HTTP error
@@ -198,60 +198,7 @@ def do_something_pretty(jsondata):
     import itertools
 
     value = jsondata["Results"]["output1"]["value"]["Values"][0]
-<<<<<<< Updated upstream
     print(value)
-=======
-    # if true rating, false profit
-    if ml :  
-        labels =["Good_Movie",
-          "     \"A\" rating",
-          "     \"B\" rating",
-          "     \"C\" rating",
-          "     \"D\" rating",
-          "The movie rating is most likely to be"]
-        words = ''
-        for x in zip(value, labels):
-            try:
-                words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
-            except:
-                None
-
-        output='Our model calculates the probability to get each rating to be: '+ words
-    else:
-        
-        
-        # labels =["Percent_Profit",
-        #   "Scored Probabilities for Class \"(-0.0009794, 0.19]\"",
-        #   "Scored Probabilities for Class \"(0.19, 0.369]\"",
-        #   "Scored Probabilities for Class \"(0.369, 0.531]\"",
-        #   "Scored Probabilities for Class \"(0.531, 0.707]\"",
-        #   "Scored Probabilities for Class \"(0.707, 0.905]\"",
-        #   "Scored Probabilities for Class \"(0.905, 1.077]\"",
-        #   "Scored Probabilities for Class \"(1.077, 1.252]\"",
-        #   "Scored Probabilities for Class \"(1.252, 1.509]\"",
-        #   "Scored Probabilities for Class \"(1.509, 1.739]\"",
-        #   "Scored Probabilities for Class \"(1.739, 2.004]\"",
-        #   "Scored Probabilities for Class \"(10.635, 6552255.0]\"",
-        #   "Scored Probabilities for Class \"(2.004, 2.223]\"",
-        #   "Scored Probabilities for Class \"(2.223, 2.531]\"",
-        #   "Scored Probabilities for Class \"(2.531, 2.852]\"",
-        #   "Scored Probabilities for Class \"(2.852, 3.176]\"",
-        #   "Scored Probabilities for Class \"(3.176, 3.614]\"",
-        #   "Scored Probabilities for Class \"(3.614, 4.227]\"",
-        #   "Scored Probabilities for Class \"(4.227, 5.085]\"",
-        #   "Scored Probabilities for Class \"(5.085, 6.787]\"",
-        #   "Scored Probabilities for Class \"(6.787, 10.635]\"",
-        #   "Scored Labels"]
-        # words = ''
-        percPrft = 0.0
-        for x in value[7:21]:
-            try:
-                percPrft = percPrft + float(x)*100
-            except:
-                None
-
-        output=f'Your probability of making a profit is: {round(percPrft, 2)}%'
->>>>>>> Stashed changes
     # Convert values (a list) to a list of tuples [(cluster#,distance),...]
     # valuetuple = list(zip(range(valuelen-1), value[1:(valuelen)]))
     # Convert the list of tuples to one long list (flatten it)
