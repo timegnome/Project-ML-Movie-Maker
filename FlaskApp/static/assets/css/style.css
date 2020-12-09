@@ -325,14 +325,23 @@ h5 {
 .tableauSection {
   margin: auto;
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 75px;
 }
 
 .tableauPlaceholder {
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding-top: 25px;
-  padding-bottom: 25px;
 }
 
+/*--------------------------------------------------------------
+# ML forms
+--------------------------------------------------------------*/ 
+
+.formGuideText {
+  font-style: italic;
+  font-size: small;
+}
+
+.myInput{
+  font-style: italic;
+  font-size: small;
+}
