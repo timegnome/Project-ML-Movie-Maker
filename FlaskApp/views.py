@@ -17,7 +17,7 @@ HEADERS1 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + MO
 HEADERS2 = {'Content-Type': 'application/json', 'Authorization': ('Bearer ' + PROFIT_KEY)}
 
 # initialize the seed for random movie images
-random.seed(1)
+random.seed(datetime.ctime)
 
 # get path for images
 path = "FlaskApp/static/assets/images/movies/"
