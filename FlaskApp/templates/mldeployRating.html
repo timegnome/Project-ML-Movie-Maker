@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row align-items-start">
-    <div class="col-md-4 " id="prediction">
+    <div class="col-md-5 " id="prediction">
         <h3>{{ title }}</h3>
         
         <dl>    
@@ -18,7 +18,7 @@
         {{ result|safe }}
     </div>
 
-    <div class = 'col-md-8' id="prediction">
+    <div class = 'col-md-7' id="prediction">
         <img src = {{ url_for('static', filename= movie ) }} class="img-fluid"/>
     </div>
 </div>
