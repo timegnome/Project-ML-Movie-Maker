@@ -78,9 +78,23 @@ def rating():
         # print(body)
         # Formulate the request
         req = urllib.request.Request(MOVIE_URL, body, HEADERS1)
-
+        
         # Send this request to the AML service and render the results on page
         try:
+            # Coversion dict for the options of the percent profits
+            options = {'(-0.0009794, 0.19]': 'less than 19 %',
+     '(0.19, 0.369]': '19-36%',
+        '(0.369, 0.531]': '36-53%','(0.531, 0.707]': '50-70%',
+      '(0.707, 0.905]': '70-90%', '(0.905, 1.077]': '90-107%',
+        '(1.077, 1.252]': '107-125%', '(1.252, 1.509]': '120-150%', 
+        '(1.509, 1.739]': '150-173%', '(1.739, 2.004]': '173-200%',
+        '(2.004, 2.223]': '200-222%', '(2.223, 2.531]': '222-253%',
+          '(2.531, 2.852]': '253-285%', '(2.852, 3.176]': '285-317%',
+            '(3.176, 3.614]': '317-361%', '(3.614, 4.227]': '361-422%',
+            '(4.227, 5.085]': '422-508%', '(5.085, 6.787]': '508-678%',
+            '(6.787, 10.635]': '678-1065%',
+                '(10.635, 6552255.0]': '1060%+'}
+
             response = urllib.request.urlopen(req)
             #print(response)
             respdata = response.read()
@@ -93,6 +107,7 @@ def rating():
                 year = datetime.now().year,
                 result = result,
                 form = form,
+                profit = options[form.percent_Profit.data],
                 movie = 'assets/images/movies/' + movies[random.randint(0,len(movies)-1)])
         # An HTTP error
         except urllib.error.HTTPError as err:

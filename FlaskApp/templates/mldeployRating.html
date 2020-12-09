@@ -9,12 +9,12 @@
             <p>Production Company(s): {{", ".join(form.prodComp.data)}}</p>
             <p>Production Contry(s): {{", ".join(form.prodCont.data)}}</p>
             <p>Keyword(s): {{", ".join(form.new_Key.data)}}</p>
-            <p>Percent Profit: {{form.percent_Profit.data}}</p>
+            <p>Percent Profit: {{ profit}}</p>
             
             {{ result|safe }}
     </div>
     <div class = 'col-md-8'>
-        <img src = {{ url_for('static', filename= movie ) }} class="img-responsive"/>
+        <img src = {{ url_for('static', filename= movie ) }} class="img"/>
     </div>
 </div>
 
