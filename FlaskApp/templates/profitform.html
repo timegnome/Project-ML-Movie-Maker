@@ -1,33 +1,33 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Determine the Profit of your movie based on the it's Genres, Production Companies, Production Countries, Keywords, and Good Movie</h2>
+<h2>Determine the probability of making profit on your movie based on its genre, production company, production country, key words, and movie rating.</h2>
 <form method=post>
     <dl>
         <p>
             <h3>Genres</h3>
-            Enter the Genre(s) of the movie you wish to get the percent profit prediction <br/>
+            Enter the Genre(s) of the movie you wish to test:<br/>
             <p>"Animation, Comedy, Family, Adventure, Fantasy, Romance, Drama,
                  Action, Crime, Thriller, Horror, History, Mystery,
                   War, Foreign, Music, Documentary, Western"</p><br/>
             {{form.genres}}
         </p>
-
+        
         <p>
-            <h3>Production Companies</h3>
-            Enter the Production Companies of the movie you wish to get the profit% prediction <br/><br/>
+            <h3>Production Company</h3>
+            Enter the production company of the movie you wish to test.<br/><br/>
             {{form.prodComp}}
         </p>
         
         <p>
-            <h3>Production Countries</h3>
-            Enter the Production Countries of the movie you wish to get the profit% prediction <br/><br/>
+            <h3>Production Country</h3>
+            Enter the production country of the movie you wish to test.<br/><br/>
             {{form.prodCont}}
         </p>
 
         <p>
             <h3>Keywords</h3>
-            Enter the Keywords of the movie you wish to get the profit% prediction <br/><br/>
+            Enter the Keywords of the movie you wish to test.<br/><br/>
             {{form.new_Key}}
         </p>
 
@@ -35,7 +35,7 @@
             <h3>Good Movie</h3>
             Enter the Good Movie rating of the movie you wish to get the percent profit prediction for.
             <p>Enter one of these options: A, B, C, D</p>
-            <br/><br/>
+
             {{form.good_Movie}}
         </p>
     </dl>

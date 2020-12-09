@@ -42,10 +42,10 @@
                     <a class="nav-link" href='/methodology'>Methodology</a>
                  </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/mlprocess'>ML Process</a>
+                    <a class="nav-link" href='/visualizations'>Visualizations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/visualizations'>Visualizations</a>
+                    <a class="nav-link" href='/mlprocess'>ML Process</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href='/mldeployRating'>ML Rating</a>
@@ -64,16 +64,14 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
           <h1>Bring your dream movie to life</h1>
-          <h2>Test out your film ideas with no committments</h2>
+          <h2>Test out your film ideas with no commitments</h2>
           <div class="d-lg-flex">
-            <a href='/mldeployProfit' class="btn-get-started scrollto">Get Started: Profit</a>
-          </div>
-          <div class="d-lg-flex">
-            <a href='/mldeployRating' class="btn-get-started scrollto">Get Started: Rating</a>
+            <a href='/mldeployProfit' class="btn btn-success btn-lrg">Get Started: Profit</a>
+            <a href='/mldeployRating' class="btn btn-success btn-lrg">Get Started: Rating</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src={{ url_for('static', filename='assets/images/homepage/hero-img.png') }} class="img-fluid animated" alt="">
+          <img src={{ url_for('static', filename='assets/images/homepage/hero-img-resized.png') }} class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -97,11 +95,11 @@
 
             <div class="row no-gutters">
                 <div class="col-6 col-md-4 my-auto showcase-text">
-                    <h2>ML Process</h2>
-                    <p class="lead mb-0">Using a combination of web-scraped data and API calls, we gathered a robust collection of movie metadata spanning over
-                        seventy years worth of real-world cinema to feed into our machine learning model.
+                    <h2>Visualizations</h2>
+                    <p class="lead mb-0">Tableau software generated interactive charts and graphics that helped us vizualize our dataset, allowing
+                        us to focus our research on several key insights.
                     </p>
-                    <a class="btn btn-success btn-med" href='/mlprocess' role="button">Learn more</a>
+                    <a class="btn btn-success btn-med" href='/visualizations' role="button">Learn more</a>
                 </div>
                 <div class="col-12 col-md-8" id="pic2">
                     <img src={{ url_for('static', filename='assets/images/homepage/p2.jpg') }} class="img-responsive" alt="">
@@ -113,11 +111,11 @@
                     <img src={{ url_for('static', filename='assets/images/homepage/p3.jpg') }} class="img-responsive" alt="">
                 </div>
                 <div class="col-6 col-md-4 my-auto showcase-text">
-                    <h2>Visualizations</h2>
-                    <p class="lead mb-0">Tableau software generated interactive charts and graphics that helped us vizualize our dataset, allowing
-                        us to focus our research on several key insights.
+                    <h2>ML Process</h2>
+                    <p class="lead mb-0">Using a combination of web-scraped data and API calls, we gathered a robust collection of movie metadata spanning over
+                        seventy years worth of real-world cinema to feed into our machine learning model.
                     </p>
-                    <a class="btn btn-success btn-med" href='/visualizations' role="button">Learn more</a>
+                    <a class="btn btn-success btn-med" href='/mlprocess' role="button">Learn more</a>
                 </div>
             </div>
         </div>
@@ -130,7 +128,9 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/amy.jpg') }} alt="">
+                        <a href="https://www.linkedin.com/in/amy-vong-2442a741/">
+                            <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/amy.jpg') }} alt="">
+                        </a>
                         <h5>Amy</h5>
                         <!-- <p class="font-weight-light mb-0">"sample text"</p> -->
                     </div>
@@ -138,7 +138,9 @@
 
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/ben.jpg') }} alt="">
+                        <a href="https://www.linkedin.com/in/ben-pharn/">
+                            <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/ben.jpg') }} alt="">
+                        </a>
                         <h5>Ben</h5>
                         <!-- <p class="font-weight-light mb-0">"sample text"</p> -->
                     </div>
@@ -146,7 +148,9 @@
 
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/james.jpg') }} alt="">
+                        <a href="https://www.linkedin.com/in/jamesnguyen0/">
+                            <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/james.jpg') }} alt="">
+                        </a>
                         <h5>James</h5>
                         <!-- <p class="font-weight-light mb-0">"sample text"</p> -->
                     </div>
@@ -156,7 +160,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/kirstie.jpg') }} alt="">
+                        <a href="https://www.linkedin.com/in/kirstie-jones/">
+                            <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/kirstie.jpg') }} alt="">
+                        </a>
                         <h5>Kirstie</h5>
                         <!-- <p class="font-weight-light mb-0">"sample text"</p> -->
                     </div>
@@ -164,7 +170,9 @@
 
                 <div class="col-lg-6">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/marcel.jpg') }} alt="">
+                        <a href="https://www.linkedin.com/in/marcel-maxwell-59b569102/">
+                            <img class="img-fluid rounded-circle mb-3" src={{ url_for('static', filename='assets/images/squad/marcel.jpg') }} alt="">
+                        </a>
                         <h5>Marcel</h5>
                         <!-- <p class="font-weight-light mb-0">"sample text"</p> -->
                     </div>
