@@ -243,7 +243,8 @@ def do_something_pretty(jsondata, ml):
             try:
                 words = words+ f'  <br> {x[1]}: \t\t{float("{:.2f}".format(float(x[0])*100))}%'
             except:
-                words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
+                # words = words+ f'  <br> {x[1]}: \t\t\t{x[0]}'
+                None
         output='Our Algorithm would calculate the probability for each label to be: '+ words
     else:
         
