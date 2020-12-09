@@ -1,6 +1,15 @@
 ﻿{% extends "layout.html" %}
 
 {% block content %}
+<div class="row">
+    <div class="col-md-4" id="prediction">
+        <h3>{{ title }}</h3>
+            <p>Prediction results from chosen values:</p>
+            <p>Genre(s): {{", ".join(form.genres.data)}}</p>
+            <p>Production Company(s): {{", ".join(form.prodComp.data)}}</p>
+            <p>Production Contry(s): {{", ".join(form.prodCont.data)}}</p>
+            <p>Keyword(s): {{", ".join(form.new_Key.data)}}</p>
+            <p>Rating: {{form.good_Movie.data}}</p>
 
 <div class="row align-items-start">
     <div class="col-md-8" id="prediction">
