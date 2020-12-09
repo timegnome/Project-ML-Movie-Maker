@@ -6,6 +6,7 @@ from datetime import datetime
 from flask import render_template, request, redirect
 from FlaskApp import app
 from FlaskApp.forms import SubmissionForm
+from pygments.lexers import ml
 
 MOVIE_KEY = os.environ.get('API_KEY', 'wkpEZmoIM5mUsyfoHuaqKg3zAef/t0fKA8lo8JX0Z6woAq2PnTFfSkMGGb0Xr/Suzw3PwZ4T2ikkWrTqhpNuYQ==')
 MOVIE_URL = os.environ.get('URL', 'https://ussouthcentral.services.azureml.net/workspaces/18f31513c1594885852c68af161cbcd9/services/345892153439469ba1c49cf917869b53/execute?api-version=2.0&details=true')
@@ -198,9 +199,7 @@ def do_something_pretty(jsondata):
     import itertools
 
     value = jsondata["Results"]["output1"]["value"]["Values"][0]
-<<<<<<< Updated upstream
     print(value)
-=======
     # if true rating, false profit
     if ml :  
         labels =["Good_Movie",
@@ -251,7 +250,6 @@ def do_something_pretty(jsondata):
                 None
 
         output=f'Your probability of making a profit is: {round(percPrft, 2)}%'
->>>>>>> Stashed changes
     # Convert values (a list) to a list of tuples [(cluster#,distance),...]
     # valuetuple = list(zip(range(valuelen-1), value[1:(valuelen)]))
     # Convert the list of tuples to one long list (flatten it)
